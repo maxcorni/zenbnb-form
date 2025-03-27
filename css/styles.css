@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "roboto";
+  font-size: 1.6rem;
+}
+
+.d-none {
+  display: none;
+}
+
+/*# sourceMappingURL=styles.css.map */

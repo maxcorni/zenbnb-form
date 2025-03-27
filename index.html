@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zenbnb</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="fonts/styles.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+	<h1>Zenbnb</h1>
+</header>
+<main>
+	<form id="form"> 
+		<div class="form-item">
+			<label>Nom complet :</label>
+			<input type="text" id="fullname">
+			<span class="error-message" id="error-fullname"></span>
+		</div>
+		
+		<div class="form-item">
+			<label>Adresse :</label>
+			<input type="text" id="address">
+			<span class="error-message" id="error-address"></span>
+		</div>
+		
+		<div class="form-item">
+			<label>Email :</label>
+			<input type="text" id="email">
+			<span class="error-message" id="error-email"></span>
+		</div>
+		
+		<div class="form-item">
+			<label>Téléphone :</label>
+			<input type="text" id="phone">
+			<span class="error-message" id="error-phone"></span>
+		</div>
+		
+		<div class="form-item">
+			<label>Type de logement :</label>
+			<select id="logement" name="logement" onchange="toggleOptions()">
+				<option value="maison">Maison</option>
+				<option value="appartement">Appartement</option>
+			</select>
+			<span class="error-message" id="error-logement"></span>
+		</div>
+		
+		<div id="options-maison" class="form-item">
+			<label><input type="checkbox" name="jardin" id="jardin"> Jardin</label>
+			<label><input type="checkbox" name="piscine" id="piscine"> Piscine</label>
+		</div>
+		
+		<div id="options-appartement" class="form-item" style="display: none;">
+			<label><input type="checkbox" name="balcon" id="balcon"> Balcon</label>
+			<label><input type="checkbox" name="ascenseur" id="ascenseur"> Ascenseur</label>
+		</div>
+		
+		<div class="form-item">
+			<label>Nombre de personnes :</label>
+			<input type="number" name="personnes" id="personnes">
+			<span class="error-message" id="error-personnes"></span>
+		</div>
+		
+		<div class="form-item">
+			<label>Date d'arrivée :</label>
+			<input type="date" name="arrivee" id="arrivee">
+			<label>Date de départ :</label>
+			<input type="date" name="depart" id="depart">
+			<span class="error-message" id="error-dates"></span>
+		</div>
+		
+		<fieldset class="form-item">
+			<legend>Services supplémentaires :</legend>
+			<label><input type="checkbox" id="chauffeur" name="services" value="chauffeur"> Chauffeur</label>
+			<label><input type="checkbox" id="breakfast" name="services" value="breakfast" onclick="toggleDiet()"> Petit-déjeuner</label>
+			<label><input type="checkbox" id="guide" name="services" value="guide"> Guide</label>
+		</fieldset>
+		
+		<div id="dietSection" class="form-item" style="display: none;">
+			<label>Régime alimentaire :</label>
+			<select name="regime" id="regime">
+				<option value="aucun">Aucun</option>
+				<option value="vegetarien">Végétarien</option>
+				<option value="vegan">Vegan</option>
+				<option value="halal">Halal</option>
+				<option value="casher">Casher</option>
+			</select>
+			<span class="error-message" id="error-regime"></span>
+		</div>
+		
+		<button type="submit">Envoyer</button>
+		<button type="reset" id="resetBtn">Reinitialisé</button>
+
+	</form>
+	<div id="result" class="result"></div>
+</main>
+<footer>
+</footer>
+</body>
+<script src="script.js"></script>
+</html>
