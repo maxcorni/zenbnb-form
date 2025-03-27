@@ -1,0 +1,12 @@
+@use "../../abstracts/index" as *;
+
+.secondary-btn {
+    @extend %btn-base;
+    color: $text-color;
+    background-color: $grey;
+
+    &:hover {
+        background-color: $dark-grey;
+    }
+}
+

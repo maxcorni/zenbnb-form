@@ -1,0 +1,25 @@
+@use "../../abstracts/index" as *;
+
+
+.modal {
+    @include flex (column, center);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $shadow-modal;
+    z-index: 1000;
+
+    .modal-content {
+        @include modal-style();
+        h2 {
+            @extend %title;
+        }
+        .result {
+            @extend %text;
+        } 
+    }
+}
+

@@ -1,0 +1,14 @@
+@use "../abstracts/index" as *;
+
+/* En-tête */
+header {
+    background-color: $red;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+}

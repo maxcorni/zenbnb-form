@@ -18,25 +18,25 @@
 		<div class="form-item">
 			<label>Nom complet :</label>
 			<input type="text" id="fullname">
-			<span class="error-message" id="error-fullname"></span>
+			<p class="error-message" id="error-fullname"></p>
 		</div>
 		
 		<div class="form-item">
 			<label>Adresse :</label>
 			<input type="text" id="address">
-			<span class="error-message" id="error-address"></span>
+			<p class="error-message" id="error-address"></p>
 		</div>
 		
 		<div class="form-item">
 			<label>Email :</label>
 			<input type="text" id="email">
-			<span class="error-message" id="error-email"></span>
+			<p class="error-message" id="error-email"></p>
 		</div>
 		
 		<div class="form-item">
 			<label>Téléphone :</label>
 			<input type="text" id="phone">
-			<span class="error-message" id="error-phone"></span>
+			<p class="error-message" id="error-phone"></p>
 		</div>
 		
 		<div class="form-item">
@@ -45,23 +45,41 @@
 				<option value="maison">Maison</option>
 				<option value="appartement">Appartement</option>
 			</select>
-			<span class="error-message" id="error-logement"></span>
+			<p class="error-message" id="error-logement"></p>
 		</div>
 		
-		<div id="options-maison" class="form-item">
-			<label><input type="checkbox" name="jardin" id="jardin"> Jardin</label>
-			<label><input type="checkbox" name="piscine" id="piscine"> Piscine</label>
-		</div>
-		
-		<div id="options-appartement" class="form-item" style="display: none;">
-			<label><input type="checkbox" name="balcon" id="balcon"> Balcon</label>
-			<label><input type="checkbox" name="ascenseur" id="ascenseur"> Ascenseur</label>
-		</div>
+		<fieldset id="options-maison" class="form-item">
+			<legend>Options pour la maison</legend>
+			<div class="row">
+				<div>
+					<input type="checkbox" name="jardin" id="jardin">
+					<label for="jardin" class="checkbox-label">Jardin</label>
+				</div>
+				<div>
+					<input type="checkbox" name="piscine" id="piscine">
+					<label for="piscine" class="checkbox-label">Piscine</label>	
+				</div>
+			</div>
+		</fieldset>
+			
+		<fieldset id="options-appartement" class="form-item" style="display: none;">
+			<legend>Options pour l'appartement</legend>
+			<div class="row">
+				<div>
+					<input type="checkbox" name="balcon" id="balcon">
+					<label for="balcon" class="checkbox-label">Balcon</label>
+				</div>
+				<div>
+					<input type="checkbox" name="ascenseur" id="ascenseur">
+					<label for="ascenseur" class="checkbox-label">Ascenseur</label>
+				</div>
+			</div>
+		</fieldset>
 		
 		<div class="form-item">
 			<label>Nombre de personnes :</label>
 			<input type="number" name="personnes" id="personnes">
-			<span class="error-message" id="error-personnes"></span>
+			<p class="error-message" id="error-personnes"></p>
 		</div>
 		
 		<div class="form-item">
@@ -69,15 +87,27 @@
 			<input type="date" name="arrivee" id="arrivee">
 			<label>Date de départ :</label>
 			<input type="date" name="depart" id="depart">
-			<span class="error-message" id="error-dates"></span>
+			<p class="error-message" id="error-dates"></p>
 		</div>
 		
 		<fieldset class="form-item">
 			<legend>Services supplémentaires :</legend>
-			<label><input type="checkbox" id="chauffeur" name="services" value="chauffeur"> Chauffeur</label>
-			<label><input type="checkbox" id="breakfast" name="services" value="breakfast" onclick="toggleDiet()"> Petit-déjeuner</label>
-			<label><input type="checkbox" id="guide" name="services" value="guide"> Guide</label>
-		</fieldset>
+			<div class="row">
+				<div>
+					<input type="checkbox" id="chauffeur" name="services" value="chauffeur">
+					<label for="chauffeur" class="checkbox-label">Chauffeur</label>
+				</div>
+				<div>
+					<input type="checkbox" id="breakfast" name="services" value="breakfast" onclick="toggleDiet()">
+					<label for="breakfast" class="checkbox-label">Petit-déjeuner</label>
+				</div>
+				<div>
+					<input type="checkbox" id="guide" name="services" value="guide">
+					<label for="guide" class="checkbox-label">Guide</label>
+				</div>
+			</div>
+		  </fieldset>
+		  
 		
 		<div id="dietSection" class="form-item" style="display: none;">
 			<label>Régime alimentaire :</label>
@@ -88,15 +118,23 @@
 				<option value="halal">Halal</option>
 				<option value="casher">Casher</option>
 			</select>
-			<span class="error-message" id="error-regime"></span>
+			<p class="error-message" id="error-regime"></p>
 		</div>
 		
-		<button type="submit">Envoyer</button>
-		<button type="reset" id="resetBtn">Reinitialisé</button>
+		<button type="submit" class="primary-btn">Envoyer</button>
+		<button type="reset" id="resetBtn" class="secondary-btn">Reinitialisé</button>
 
 	</form>
-	<div id="result" class="result"></div>
-</main>
+	<div id="formResult" class="modal">
+		<div class="modal-content">
+			<h2>Résultats</h2>
+			<div class="result" id="result">
+				<!-- Résultats du formulaire ici -->
+			</div>
+			<button class="primary-btn" id="close">Fermer</button>
+		</div>
+	</div>
+	</main>
 <footer>
 </footer>
 </body>

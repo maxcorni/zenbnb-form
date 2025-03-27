@@ -1,0 +1,22 @@
+@use "../abstracts/index" as *;
+
+/* Corps de la page */
+body {
+    background-color: $bg-color;
+    color: $text-color;
+    font-size: $font-mid;
+}
+
+
+
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: $spacing-low;
+}
+
+
+
+
+
+

@@ -1,41 +1,30 @@
 window.onload = function() {
     const savedData = localStorage.getItem("formData");
-
+    console.log(savedData)
     if (savedData) {
         const formData = JSON.parse(savedData);
 
-        // Remplir les champs avec les données sauvegardées
         document.getElementById("fullname").value = formData.fullName;
         document.getElementById("address").value = formData.address;
         document.getElementById("email").value = formData.email;
         document.getElementById("phone").value = formData.phone;
         document.getElementById("logement").value = formData.logement;
-
-        // Restaurer les cases à cocher pour jardin, piscine, balcon, ascenseur
         document.getElementById("jardin").checked = formData.jardin || false;
         document.getElementById("piscine").checked = formData.piscine || false;
         document.getElementById("balcon").checked = formData.balcon || false;
         document.getElementById("ascenseur").checked = formData.ascenseur || false;
 
-        // Appel de la fonction toggleOptions pour gérer l'affichage des options logement
         toggleOptions();
 
-        // Récupérer et convertir les dates
-        const arriveeDate = new Date(formData.arrivee.split("/").reverse().join("-"));
-        const departDate = new Date(formData.depart.split("/").reverse().join("-"));
-        if (!isNaN(arriveeDate.getTime())) {
-            document.getElementById("arrivee").value = arriveeDate.toISOString().split("T")[0];
-        }
-        if (!isNaN(departDate.getTime())) {
-            document.getElementById("depart").value = departDate.toISOString().split("T")[0];
-        }
+        document.getElementById("arrivee").value = new Date(formData.arrivee).toISOString().split('T')[0];
+        document.getElementById("depart").value = new Date(formData.depart).toISOString().split('T')[0];
 
-        // Autres champs
         document.getElementById("personnes").value = formData.personnes;
         document.getElementById("breakfast").checked = formData.petitDejeuner || false;
         document.getElementById("guide").checked = formData.guide || false;
         document.getElementById("chauffeur").checked = formData.chauffeur || false;
         document.getElementById("regime").value = formData.regime || "";
+
         toggleDiet();
     }
 };
@@ -61,7 +50,6 @@ function toggleDiet() {
     const dietSection = document.getElementById("dietSection");
     const breakfast = document.getElementById("breakfast").checked;   
     dietSection.style.display = breakfast ? "block" : "none";
-
 };
 
 document.getElementById("breakfast").addEventListener("change", toggleDiet);
@@ -146,7 +134,6 @@ document.getElementById("form").addEventListener("submit", function(event) {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^(\?\d{1,3}[-.\s]?)?\d{9,12}$/; 
-
     validateField(fullName, val => val.length < 2 || val.length > 50, fullNameError, "Nom invalide (2-50 caractères)");
     validateField(address, val => val.length < 5 || val.length > 100, addressError, "Adresse invalide (5-100 caractères)");
     validateField(email, val => !emailRegex.test(val), emailError, "Email invalide");
@@ -169,14 +156,14 @@ document.getElementById("form").addEventListener("submit", function(event) {
 
         const formData = {
             fullName, address, email, phone, logement, jardin, piscine, balcon, ascenseur, 
-            personnes, arrivee: arrivee.toLocaleDateString(), depart: depart.toLocaleDateString(), 
+            personnes, arrivee, depart, 
             nights, petitDejeuner, regime, guide, chauffeur, total
         };
 
         localStorage.setItem("formData", JSON.stringify(formData));
 
         result.innerHTML = `
-            <strong>Bonjour ${fullName}</strong><br>
+            Bonjour : ${fullName}<br>
             Adresse : ${address}<br>
             Adresse Email : ${email}<br>
             Numéro de téléphone : ${phone}<br>
@@ -190,13 +177,14 @@ document.getElementById("form").addEventListener("submit", function(event) {
             }<br>        
             Nombre de personnes : ${personnes}<br>
             Dates de séjour : ${arrivee.toLocaleDateString()} - ${depart.toLocaleDateString()}<br>
-            Nombre de nuits :  ${nights}€<br>
-            Petit-déjeuner : ${petitDejeuner ? "Oui" : "Non"}<br>
-            Régime : ${regime ? regime : "Aucun"}<br>
-            Guide : ${guide ? "Oui" : "Non"}<br>
-            Chauffeur : ${chauffeur ? "Oui" : "Non"}<br>
+            Nombre de nuits :  ${nights}<br>
+            ${petitDejeuner ? `Petit-déjeuner : Oui<br>${regime ? `Régime : ${regime}<br>` : ""}` : ""}
+            ${guide ? `Guide : Oui<br>` : ""}
+            ${chauffeur ? `Chauffeur : Oui<br>` : ""}
             Total : ${total}€<br>
         `;
+    
+        showModal()
     }
 });
 
@@ -210,3 +198,15 @@ document.getElementById("resetBtn").addEventListener("click", function() {
     localStorage.clear()
 });
 
+// Pour afficher la modal
+const modal = document.getElementById("formResult");
+const closeBtn = document.getElementById("close");
+
+function showModal() {
+    modal.style.display = "flex";
+}
+
+// Pour fermer la modal
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});

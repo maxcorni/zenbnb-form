@@ -1,3 +1,27 @@
+@charset "UTF-8";
+.secondary-btn, .primary-btn {
+  border: none;
+  padding: 1.5rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.modal .modal-content h2 {
+  font-size: 2rem;
+  color: #ff5a5f;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal .modal-content .result {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +35,159 @@ html {
 }
 
 body {
-  font-family: "roboto";
+  font-family: "ubuntu";
   font-size: 1.6rem;
 }
 
-.d-none {
+/* Corps de la page */
+body {
+  background-color: #f7f7f7;
+  color: #333;
+  font-size: 1.6rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+/* En-tête */
+header {
+  background-color: #ff5a5f;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background-color: #ff5a5f;
+  padding: 20px;
+}
+
+form {
+  width: 100%;
+  max-width: 60rem;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+}
+
+/* Style des éléments du formulaire */
+.form-item {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 1.6rem;
+  color: #333;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Champs de saisie */
+input[type=text], input[type=number], input[type=date], select {
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+}
+
+input[type=text]:focus, input[type=number]:focus, input[type=date]:focus, select:focus {
+  border-color: #ff5a5f;
+  outline: none;
+}
+
+/* Messages d'erreur */
+.error-message {
+  color: #ff5a5f;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+fieldset {
+  border: none;
+  margin-top: 1.5rem;
+}
+
+legend {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.result {
+  margin-top: 1.5rem;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.primary-btn {
+  background-color: #ff5a5f;
+  color: white;
+}
+.primary-btn:hover {
+  background-color: #ff3e42;
+}
+
+.secondary-btn {
+  color: #333;
+  background-color: #ccc;
+}
+.secondary-btn:hover {
+  background-color: #aaa;
+}
+
+input[type=checkbox] {
   display: none;
+}
+
+.checkbox-label {
+  cursor: pointer;
+  color: black;
+  transition: color 0.3s ease;
+  width: fit-content;
+  padding: 1rem;
+  border: 0.2rem solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+}
+
+input[type=checkbox]:checked + .checkbox-label {
+  background-color: #ff5a5f;
+  color: white;
+}
+
+.modal {
+  display: flex;
+  justify-content: column;
+  align-items: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.502);
+  z-index: 1000;
+}
+.modal .modal-content {
+  background-color: #f7f7f7;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 60rem;
+  margin: auto;
 }
 
 /*# sourceMappingURL=styles.css.map */

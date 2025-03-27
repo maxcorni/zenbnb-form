@@ -1,0 +1,42 @@
+@use "variables" as *;
+@use "colors" as *;
+
+%btn-base {
+    border: none;
+    padding: $spacing-mid $spacing-high;
+    font-size: $font-mid;
+    border-radius: $border-radius;
+    cursor: pointer;
+    margin-top: $spacing-high;
+    width: 100%;
+}
+
+%title {
+    font-size: $font-high;
+    color: $red;
+    text-align: center;
+    margin-bottom: $spacing-mid;
+}
+
+%text {
+    font-size: $font-mid;
+    color: $text-color;
+    margin-bottom: $spacing-low;
+}
+
+@mixin flex ($direction: column, $align: center) {
+    display: flex;
+    justify-content: $direction;
+    align-items: $align;
+}
+
+
+@mixin modal-style($max-width: 60rem) {
+    background-color: $bg-color;
+    padding: $spacing-mid;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    width: 90%;
+    max-width: $max-width;
+    margin: auto;
+}

@@ -1,0 +1,62 @@
+@use "../abstracts/index" as *;
+
+form {
+    width: 100%;
+    max-width: 60rem; // 600px
+    margin: $spacing-low auto;
+    padding: $spacing-mid;
+    background-color: #fff;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+}
+
+/* Style des éléments du formulaire */
+.form-item {
+    margin-bottom: $spacing-low;
+}
+
+label {
+    font-size: $font-mid;
+    color: $text-color;
+    display: block;
+    margin-bottom: $spacing-low;
+}
+
+/* Champs de saisie */
+input[type="text"], input[type="number"], input[type="date"], select {
+    width: 100%;
+    padding: $spacing-low;
+    margin: $spacing-low 0;
+    border: 2px solid $grey;
+    border-radius: $border-radius;
+    font-size: $font-mid;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, select:focus {
+    border-color: $red;
+    outline: none;
+}
+
+/* Messages d'erreur */
+.error-message {
+    color: $red;
+    font-size: $font-low;
+    margin-top: $spacing-low;
+}
+
+fieldset {
+    border: none;
+    margin-top: $spacing-mid;
+}
+
+legend {
+    font-size: $font-mid;
+    margin-bottom: $spacing-low;
+}
+
+.result {
+    margin-top: $spacing-mid;
+    font-size: $font-mid;
+    color: $text-color;
+}
+

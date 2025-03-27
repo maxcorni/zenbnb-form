@@ -1,0 +1,10 @@
+@use "../../abstracts/index" as *;
+
+.primary-btn {
+    @extend %btn-base;
+    background-color: $red;
+    color: white;
+    &:hover {
+        background-color: $dark-red;
+    }
+}

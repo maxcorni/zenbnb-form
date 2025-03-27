@@ -1,0 +1,21 @@
+@use "../../abstracts/index" as *;
+
+input[type="checkbox"] {
+    display: none; 
+}
+
+.checkbox-label {
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s ease;
+    width: fit-content;
+    padding: $spacing-low;
+    border: $border-width solid $grey;
+    border-radius: $border-radius;
+    font-size: $font-low;
+}
+
+input[type="checkbox"]:checked + .checkbox-label {
+    background-color: $red;
+    color: white;
+}
