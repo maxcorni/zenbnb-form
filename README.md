@@ -13,7 +13,7 @@ https://maxcorni.github.io/zenbnb-form/
 ## Arborescence du projet
 
 
-ZENBNB-FINAL ├── .gitignore ├── index.html ├── liste.txt ├── liste2.txt ├── package-lock.json ├── package.json ├── README.md ├── robots.txt └── script.js
+ZENBNB-FINAL ├── .gitignore ├── index.html ├── package-lock.json ├── package.json ├── README.md ├── robots.txt └── script.js
 
 assets ├── main.scss ├── abstracts │ ├── _colors.scss │ ├── _functions.scss │ ├── _index.scss │ ├── _mixins.scss │ ├── _placeholders.scss │ ├── _typography.scss │ └── _variables.scss ├── base │ ├── _global.scss │ ├── _reset-typography.scss │ └── _reset.scss ├── components │ ├── buttons │ │ ├── _checkbox.scss │ │ ├── _primary.scss │ │ └── _secondary.scss │ └── modals │ └── _modal.scss ├── layout │ ├── _footer.scss │ ├── _forms.scss │ └── _header.scss └── pages └── _home.scss
 
