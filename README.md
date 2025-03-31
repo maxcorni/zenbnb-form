@@ -30,7 +30,7 @@ pages
 1. Clone le projet depuis GitHub :
 
     ```bash
-    git clone https://github.com/ton-utilisateur/zenbnb.git
+    git clone https://github.com/maxcorni/zenbnb.git
     ```
 
 2. Installe les dépendances (si tu utilises npm) :
